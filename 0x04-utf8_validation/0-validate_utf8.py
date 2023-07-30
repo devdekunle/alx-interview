@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+This module contains function to check if data i utf-8 validated
+"""
+
 def validUTF8(data):
     """
     Function to check if a byte is a valid continuation byte (starts with '10')
