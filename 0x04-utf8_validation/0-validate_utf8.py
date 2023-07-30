@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def validUTF8(data):
     """
     Function to check if a byte is a valid continuation byte (starts with '10')
