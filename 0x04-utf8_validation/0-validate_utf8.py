@@ -3,9 +3,11 @@
 This module contains function to check if data i utf-8 validated
 """
 
+
 def validUTF8(data):
     """
-    Function to check if a byte is a valid continuation byte (starts with '10')
+    Function to check if a byte is a valid continuation byte
+    (starts with '10')
     """
     def is_continuation(byte):
         """
