@@ -2,16 +2,14 @@
 """
 Implementing making changes challenge
 """
-
-
 def makeChange(coins, total):
     """
-    returns ewest number of coins needed to meet total or 0
+    implement making changes
     """
     if total <= 0:
         return 0
 
-    # Initialize a list to store the minimum number of coins needed for each total amount.
+    # Initialize a list to store the minimum number of coins needed for each coin denomination.
     dp = [float('inf')] * (total + 1)
     dp[0] = 0  # It takes 0 coins to make a total of 0.
 
