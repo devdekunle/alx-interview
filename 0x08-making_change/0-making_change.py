@@ -12,7 +12,7 @@ def makeChange(coins, total):
         return 0
 
     # Initialize a list to store the minimum
-    #3number of coins needed for each coin denomination.
+    # 3number of coins needed for each coin denomination.
     dp = [float('inf')] * (total + 1)
     dp[0] = 0  # It takes 0 coins to make a total of 0.
 
