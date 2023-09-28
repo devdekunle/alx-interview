@@ -5,6 +5,9 @@ Prime game implementation
 
 
 def isWinner(x, nums):
+    """
+    Prime game dynamic programming
+    """
     def is_prime(num):
         if num <= 1:
             return False
