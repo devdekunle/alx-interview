@@ -1,6 +1,13 @@
 #!/usr/bin/python3
+"""
+Modules that implements lockboxes challenge
+"""
+
 
 def canUnlockAll(boxes):
+    """
+    returns true of false if a set of boxes can be opened
+    """
     n = len(boxes)
     if n == 0:
         return True  # No boxes, so nothing to unlock.
