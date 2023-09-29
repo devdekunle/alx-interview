@@ -15,6 +15,9 @@ def is_prime(num):
 
 
 def get_primes(n):
+    """
+    function to get primes
+    """
     primes = []
     for num in range(2, n + 1):
         if is_prime(num):
@@ -42,6 +45,9 @@ def can_win(nums):
 
 
 def isWinner(x, nums):
+    """
+    function to get the winner of the game
+    """
     maria_wins = 0
     ben_wins = 0
 
