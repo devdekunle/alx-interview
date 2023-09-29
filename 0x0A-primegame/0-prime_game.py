@@ -5,9 +5,7 @@ Prime game implementation
 
 
 def is_prime(num):
-    """
-    prime game implementation
-    """
+    """prime game implementation to determine the winner of a game"""
     if num <= 1:
         return False
     for i in range(2, int(num**0.5) + 1):
