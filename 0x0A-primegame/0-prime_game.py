@@ -2,6 +2,8 @@
 """
 Prime game implementation
 """
+
+
 def generate_primes(n):
     primes = [True] * (n + 1)
     primes[0] = primes[1] = False
@@ -11,6 +13,7 @@ def generate_primes(n):
                 primes[j] = False
     return primes
 
+
 def can_win(nums, primes):
     for num in nums:
         if primes[num]:
@@ -18,6 +21,7 @@ def can_win(nums, primes):
             if not new_nums or not can_win(new_nums, primes):
                 return True
     return False
+
 
 def isWinner(x, nums):
     """
