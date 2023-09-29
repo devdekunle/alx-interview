@@ -2,61 +2,36 @@
 """
 Prime game implementation
 """
-
-
-def is_prime(num):
-    """prime game implementation to determine the winner of a game"""
-    if num <= 1:
-        return False
-    for i in range(2, int(num**0.5) + 1):
-        if num % i == 0:
-            return False
-    return True
-
-
-def get_primes(n):
-    """
-    function to get primes
-    """
-    primes = []
-    for num in range(2, n + 1):
-        if is_prime(num):
-            primes.append(num)
+def generate_primes(n):
+    primes = [True] * (n + 1)
+    primes[0] = primes[1] = False
+    for i in range(2, int(n**0.5) + 1):
+        if primes[i]:
+            for j in range(i*i, n + 1, i):
+                primes[j] = False
     return primes
 
-
-def can_win(nums):
-    primes = get_primes(max(nums))
-    memo = {}
-
-    def helper(nums):
-        if tuple(nums) in memo:
-            return memo[tuple(nums)]
-        for num in nums:
-            if num in primes:
-                new_nums = [x for x in nums if x % num != 0]
-                if not helper(new_nums):
-                    memo[tuple(nums)] = True
-                    return True
-        memo[tuple(nums)] = False
-        return False
-
-    return helper(nums)
-
+def can_win(nums, primes):
+    for num in nums:
+        if primes[num]:
+            new_nums = [x for x in nums if x % num != 0]
+            if not new_nums or not can_win(new_nums, primes):
+                return True
+    return False
 
 def isWinner(x, nums):
     """
-    function to get the winner of the game
+    Implementation of prime games to get winner
     """
+    max_num = max(max(nums), 1)
+    primes = generate_primes(max_num)
     maria_wins = 0
     ben_wins = 0
-
     for n in nums:
-        if can_win(list(range(1, n + 1))):
+        if can_win(list(range(1, n + 1)), primes):
             maria_wins += 1
         else:
             ben_wins += 1
-
     if maria_wins > ben_wins:
         return "Maria"
     elif maria_wins < ben_wins:
